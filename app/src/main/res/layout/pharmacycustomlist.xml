@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content"
+    >
+    <ImageView
+        android:id="@+id/dairyimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pharmcy" />
+
+    <LinearLayout
+        android:layout_width="318dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dairyname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Orange"
+            android:textColor="@color/colorblack"
+            android:textSize="16sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/freshdairy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Akka Circle Choice Fresh Orange" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/offpricedairy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20%off"
+                android:textColor="@color/colorgreen"></TextView>
+
+            <TextView
+                android:id="@+id/waitdairy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="5kg"
+                android:textColor="@color/colorblack" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/moneydairy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Rs"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pricelessdairy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/cutt"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/sub"
+                    android:visibility="gone"
+                    android:textColor="@color/colorblack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADD ITEM"
+                    android:background="@drawable/adddesign"
+                    android:id="@+id/Add"
+                    android:textColor="@color/colorblack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:id="@+id/add"
+                    android:visibility="gone"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/colorblack"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

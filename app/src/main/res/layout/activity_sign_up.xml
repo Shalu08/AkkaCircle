@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".Activity.SignUp">
+
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/tool"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@drawable/akkaimag"/>
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp">
+
+
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@+id/tool"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+                android:drawablePadding="5dp"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:hint=" User Name"/>
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                android:textSize="13sp"
+                android:inputType="textEmailAddress"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/mail"
+                android:hint="Email_id"/>
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/phn"
+                android:drawablePadding="5dp"
+                android:inputType="number"
+                android:textSize="13sp"
+                android:drawableLeft="@drawable/ic_phn"
+                android:hint="Mobile Number"/>
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/password"
+                android:textSize="13sp"
+                android:inputType="textPassword"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/ic_llocked"
+                android:hint="Password"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                >
+                <TextView
+                    android:id="@+id/termcondition"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorgreen"
+                    android:text="Terms and Conditions"
+                    />
+                <TextView
+                    android:id="@+id/forgotpassword"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Privacy policy"
+                    android:gravity="right"
+                    android:textColor="@color/colorblack"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/check"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/acceptdata"
+                    android:layout_marginRight="5dp"
+                    android:text="I accept the terms and Conditions."/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorblack"
+                    android:textSize="11sp"
+                    android:text="Already have an account?"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorgreen"
+                    android:id="@+id/logdata"
+                    android:text=" Login Now."/>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/coloryellow"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:id="@+id/loginbtn"
+                android:textColor="@color/colorwhite"
+                android:text="Register Now"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
