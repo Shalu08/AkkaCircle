@@ -16,6 +16,7 @@ public class SignUp extends AppCompatActivity {
     private Button _loginbtn;
     private EditText _name,_email,_phone,_password;
     private TextView _loginnow;
+    
     private CheckBox checkBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
