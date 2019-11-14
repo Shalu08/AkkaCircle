@@ -30,10 +30,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         _skip=findViewById(R.id.skip);
         textview = findViewById(R.id.reg);
         _number=findViewById(R.id.phnnumber);
         _paas=findViewById(R.id.password);
+
         textview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,13 +43,19 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.finish();
             }
         });
+
         btn=findViewById(R.id.logindata);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 userSignin();
-                //startActivity(new Intent(LoginActivity.this, Homepage.class));
+            }
+        });
 
+        _skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, Homepage.class));
             }
         });
     }
