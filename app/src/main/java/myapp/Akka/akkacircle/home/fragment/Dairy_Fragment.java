@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Fragment;
+package myapp.Akka.akkacircle.home.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,15 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import myapp.Akka.akkacircle.Model.Productlist;
+import myapp.Akka.akkacircle.home.model.Productlist;
 import myapp.Akka.akkacircle.R;
 import myapp.Akka.akkacircle.Util.ListManager;
-import myapp.Akka.akkacircle.Util.addItem;
 
 public class Dairy_Fragment extends Fragment implements ListManager.ListManagerInterface {
     private RecyclerView recyclerView;
     private ArrayList<Productlist> arrayList;
-    private addItem AddItem;
+
     private ListManager listManager;
     private ImageView imageView;
     private TextView _Maintext,Des,dis,price,_pricessless,_wait,_Add,add,sub;
@@ -31,21 +30,11 @@ public class Dairy_Fragment extends Fragment implements ListManager.ListManagerI
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dairy_fragment,
                 container, false);
-        AddItem=new addItem() {
-            @Override
-            public void itemadd(String id, String name, String quantity, String discount, String price, String priceless) {
 
-            }
-
-            @Override
-            public void remove(String id) {
-
-            }
-        };
         recyclerView=view.findViewById(R.id.dairyrecycler);
         arrayList=new ArrayList();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        listManager=new ListManager(Dairy_Fragment.this,arrayList,R.layout.dairycustomlist,recyclerView,"",AddItem);
+        listManager=new ListManager(Dairy_Fragment.this,arrayList,R.layout.dairycustomlist,recyclerView,"");
         Productlist productlist = new Productlist();
         productlist.setImage(R.drawable.fullcream);
         productlist.setMaintext("Milk");
@@ -123,7 +112,6 @@ public class Dairy_Fragment extends Fragment implements ListManager.ListManagerI
                 add.setVisibility(View.VISIBLE);
                 sub.setVisibility(View.VISIBLE);
                 _Add.setText(""+i);
-                AddItem.itemadd(String.valueOf(position),_Maintext.getText().toString(),_Add.getText().toString(),dis.getText().toString(),price.getText().toString(),_pricessless.getText().toString());
             }
         });
         sub.setOnClickListener(new View.OnClickListener() {
@@ -131,7 +119,6 @@ public class Dairy_Fragment extends Fragment implements ListManager.ListManagerI
             public void onClick(View v) {
                 int a=i-1;
                 sub.setText(""+a);
-                AddItem.remove(String.valueOf(position));
                 if(a==0){
                     sub.setVisibility(View.GONE);
                     _Add.setText("ADD ITEM");
@@ -144,7 +131,6 @@ public class Dairy_Fragment extends Fragment implements ListManager.ListManagerI
             public void onClick(View v) {
                 int a=i+1;
                 add.setText(""+a);
-                AddItem.itemadd(String.valueOf(position),_Maintext.getText().toString(),add.getText().toString(),dis.getText().toString(),price.getText().toString(),_pricessless.getText().toString());
             }
         });
 

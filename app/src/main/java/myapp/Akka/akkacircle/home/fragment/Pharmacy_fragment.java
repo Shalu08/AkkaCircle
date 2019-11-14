@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Fragment;
+package myapp.Akka.akkacircle.home.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import myapp.Akka.akkacircle.Model.Productlist;
+import myapp.Akka.akkacircle.home.model.Productlist;
 import myapp.Akka.akkacircle.R;
 import myapp.Akka.akkacircle.Util.ListManager;
 import myapp.Akka.akkacircle.Util.addItem;
@@ -38,7 +38,7 @@ public class Pharmacy_fragment extends Fragment implements ListManager.ListManag
         arrayList = new ArrayList();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        listManager = new ListManager(Pharmacy_fragment.this, arrayList, R.layout.pharmacycustomlist, recyclerView, "",AddItem);
+        listManager = new ListManager(Pharmacy_fragment.this, arrayList, R.layout.pharmacycustomlist, recyclerView, "");
 for (int i=0;i<10;i++) {
     Productlist productlist = new Productlist();
     productlist.setImage(R.drawable.pharmcy);

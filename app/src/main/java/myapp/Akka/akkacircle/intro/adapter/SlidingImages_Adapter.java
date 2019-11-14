@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Util;
+package myapp.Akka.akkacircle.intro.adapter;
 
 import android.content.Context;
 import android.os.Parcelable;

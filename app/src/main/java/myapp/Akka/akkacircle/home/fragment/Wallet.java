@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Fragment;
+package myapp.Akka.akkacircle.home.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment;
 
 import myapp.Akka.akkacircle.R;
 
-public class Return_Fragment extends Fragment {
+public class Wallet extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.return_fragment,
+        View view = inflater.inflate(R.layout.cart_fragment,
                 container, false);
         return view;
     }

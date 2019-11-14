@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ListManager {
 
     private ArrayList listdata;
-    private addItem addItem;
+
     private int resource;
     private recyclerview recyclerview1;
     private ListManagerInterface listManagerInterface;
@@ -29,10 +29,9 @@ public class ListManager {
         return recyclerview1;
     }
 
-    public ListManager(ListManagerInterface listManagerInterface, ArrayList listdata, int resource, RecyclerView recyclerView, String for_what, myapp.Akka.akkacircle.Util.addItem addItem) {
+    public ListManager(ListManagerInterface listManagerInterface, ArrayList listdata, int resource, RecyclerView recyclerView, String for_what) {
         this.listdata = listdata;
         this.resource = resource;
-        this.addItem=addItem;
         this.listManagerInterface = listManagerInterface;
         this.for_what = for_what;
         recyclerview1 = new recyclerview();

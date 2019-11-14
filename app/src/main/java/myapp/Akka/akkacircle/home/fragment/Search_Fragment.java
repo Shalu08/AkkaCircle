@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Fragment;
+package myapp.Akka.akkacircle.home.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

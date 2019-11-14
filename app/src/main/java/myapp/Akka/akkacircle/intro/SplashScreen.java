@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Activity;
+package myapp.Akka.akkacircle.intro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import myapp.Akka.akkacircle.home.Homepage;
 import myapp.Akka.akkacircle.R;
+import myapp.Akka.akkacircle.Util.SharedPrefManager;
 
 public class SplashScreen extends AppCompatActivity {
 private ImageView imageView;
@@ -30,9 +32,12 @@ private Animation animation;
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
-startActivity(new Intent(SplashScreen.this, FrontPage.class));
-
+                if (SharedPrefManager.getInstance(SplashScreen.this).isLoggedIn()) {
+                    finish();
+                    startActivity(new Intent(SplashScreen.this, Homepage.class));
+                }else {
+                    startActivity(new Intent(SplashScreen.this, FrontPage.class));
+                }
 
 
             }

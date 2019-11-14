@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Fragment;
+package myapp.Akka.akkacircle.home.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import myapp.Akka.akkacircle.Model.Productlist;
+import myapp.Akka.akkacircle.home.model.Productlist;
 import myapp.Akka.akkacircle.R;
 import myapp.Akka.akkacircle.Util.ListManager;
 import myapp.Akka.akkacircle.Util.addItem;
@@ -35,7 +35,7 @@ public class Meat_Fragment extends Fragment implements ListManager.ListManagerIn
         arrayList = new ArrayList();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        listManager = new ListManager(Meat_Fragment.this, arrayList, R.layout.meatcustom, recyclerView, "",additem);
+        listManager = new ListManager(Meat_Fragment.this, arrayList, R.layout.meatcustom, recyclerView, "");
 
 
 

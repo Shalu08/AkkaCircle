@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Activity;
+package myapp.Akka.akkacircle.intro;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -17,7 +17,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import myapp.Akka.akkacircle.R;
-import myapp.Akka.akkacircle.Util.SlidingImages_Adapter;
+import myapp.Akka.akkacircle.auth.LoginActivity;
+import myapp.Akka.akkacircle.auth.RegisterActivity;
+import myapp.Akka.akkacircle.intro.adapter.SlidingImages_Adapter;
 
 public class FrontPage extends AppCompatActivity {
     private static ViewPager mPager;
@@ -37,7 +39,7 @@ public class FrontPage extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SignUp.class);
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
                 FrontPage.this.finish();
             }

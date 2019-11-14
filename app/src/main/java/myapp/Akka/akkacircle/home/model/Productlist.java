@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Model;
+package myapp.Akka.akkacircle.home.model;
 
 public class Productlist {
     private int Image;

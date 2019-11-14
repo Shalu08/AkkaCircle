@@ -1,4 +1,4 @@
-package myapp.Akka.akkacircle.Activity;
+package myapp.Akka.akkacircle.home;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -11,21 +11,20 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import myapp.Akka.akkacircle.Fragment.Cart_Fragment;
-import myapp.Akka.akkacircle.Fragment.Home_Fragment;
-import myapp.Akka.akkacircle.Fragment.Meat_Fragment;
-import myapp.Akka.akkacircle.Fragment.Order_Fragment;
-import myapp.Akka.akkacircle.Fragment.Return_Fragment;
-import myapp.Akka.akkacircle.Fragment.Search_Fragment;
-import myapp.Akka.akkacircle.Fragment.Wallet;
+import myapp.Akka.akkacircle.home.fragment.Cart_Fragment;
+import myapp.Akka.akkacircle.home.fragment.Home_Fragment;
+import myapp.Akka.akkacircle.home.fragment.Order_Fragment;
+import myapp.Akka.akkacircle.home.fragment.Return_Fragment;
+import myapp.Akka.akkacircle.home.fragment.Search_Fragment;
+import myapp.Akka.akkacircle.home.fragment.Wallet;
 import myapp.Akka.akkacircle.R;
+import myapp.Akka.akkacircle.Util.SharedPrefManager;
+import myapp.Akka.akkacircle.intro.FrontPage;
 
 public class Homepage extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener,NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout dl;
@@ -42,7 +41,13 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         loadFragment(new Home_Fragment());
-       setupToolbar();
+         setupToolbar();
+
+
+        if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, FrontPage.class));
+        }
 
         NavigationView navigationView = findViewById(R.id. nav_view ) ;
         navigationView.setNavigationItemSelectedListener( this ) ;
@@ -91,7 +96,10 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
                 fragment =new Order_Fragment();
                 break;
             case R.id.logout:
-                startActivity(new Intent(Homepage.this,LoginActivity.class));
+                SharedPrefManager.getInstance(this).logout();
+                finish();
+                startActivity(new Intent(this, FrontPage.class));
+
                 break;
         }
 
@@ -122,50 +130,5 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
         dl.addDrawerListener(t);
         t.syncState();
     }
- /**  @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-       getMenuInflater().inflate(R.menu.drawermenu, menu);
-       return true;
 
-   }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id){
-            case R.id.wallet:
-                Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.Return:
-                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.order:
-                Toast.makeText(getApplicationContext(),"Item 3 Selected",Toast.LENGTH_LONG).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-**/
-  /**  @Override
-    public void onNavigationDrawerItemSelected(int position) {
-        Fragment fragment = null;
-
-
-        switch (position) {
-            case R.id.menu_nearme:
-
-                fragment = new Home_Fragment();
-                break;
-
-            case R.id.menu_explor:
-                fragment = new Search_Fragment();
-                break;
-            case R.id.menu_cart:
-                fragment = new Cart_Fragment();
-                break;
-
-        }
-
-    }**/
 }
