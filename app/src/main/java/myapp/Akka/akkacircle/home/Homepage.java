@@ -43,8 +43,7 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         loadFragment(new Home_Fragment());
-         setupToolbar();
-
+        setupToolbar();
 
         if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -124,6 +123,8 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
         return false;
 
     }
+
+
     private void setupToolbar(){
         dl = (DrawerLayout)findViewById(R.id.drawerlayout);
         toolbar=(Toolbar) findViewById(R.id.toolbar);
