@@ -6,15 +6,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-
 import myapp.Akka.akkacircle.Util.Api;
 import myapp.Akka.akkacircle.home.adapter.Category;
 import myapp.Akka.akkacircle.home.model.Pojo;
@@ -33,12 +31,14 @@ public class Home_Fragment extends Fragment  implements ListManager.ListManagerI
     private ListManager listManager;
     public Category category;
     ImageView imageView;
+    FragmentManager fragmentmanager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment,
                 container, false);
         imageView=view.findViewById(R.id.grocery);
+        fragmentmanager=getFragmentManager();
 
         recyclerView = view.findViewById(R.id.recyclerimages);
         arrayList = new ArrayList();
@@ -46,11 +46,9 @@ public class Home_Fragment extends Fragment  implements ListManager.ListManagerI
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         listManager = new ListManager(Home_Fragment.this, arrayList, R.layout.imagerecycler_cusstom, recyclerView, "");
 
-
         Images_list images_list=new Images_list();
         images_list.setImag(R.drawable.groceryicon);
         arrayList.add(images_list);
-
         Images_list images_list1=new Images_list();
         images_list1.setImag(R.drawable.dairy);
         arrayList.add(images_list1);
@@ -85,11 +83,10 @@ public class Home_Fragment extends Fragment  implements ListManager.ListManagerI
         call.enqueue(new Callback<Pojo>() {
             @Override
             public void onResponse(Call<Pojo> call, Response<Pojo> response) {
-                Category adapter = new Category(response.body().getCategory(), getActivity());
+                Category adapter = new Category(response.body().getCategory(), getActivity(), fragmentmanager);
                 categoryrecycler.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onFailure(Call<Pojo> call, Throwable t) {
 
@@ -103,7 +100,6 @@ public class Home_Fragment extends Fragment  implements ListManager.ListManagerI
     @Override
     public void onBindView(ListManager.BaseViewHolder holder, int position, String for_what) {
         imageView.setImageResource(arrayList.get(position).getImag());
-
     }
 
     @Override

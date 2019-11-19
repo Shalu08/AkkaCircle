@@ -17,7 +17,11 @@
             android:layout_height="match_parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:layout_constraintBottom_toTopOf="@+id/navigation"
-            />
+            >
+
+
+        </FrameLayout>
+
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -26,6 +30,17 @@
             android:background="@color/coloryellow"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
             app:layout_constraintTop_toTopOf="@+id/fragment_container"/>
+
+
+        <com.andremion.counterfab.CounterFab
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fab"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:backgroundTintMode="@android:color/white"
+            android:src="@drawable/ic_shopping_cart_black_24dp"/>
+
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
@@ -36,6 +51,7 @@
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/bottomnavigation" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -47,6 +63,7 @@
         app:menu="@menu/drawermenu">
 
     </com.google.android.material.navigation.NavigationView>
+
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

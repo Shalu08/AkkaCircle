@@ -9,12 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
+import com.andremion.counterfab.CounterFab;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -33,17 +35,31 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     Toolbar toolbar;
-    final Fragment fragment1= new Home_Fragment();
-    final Fragment fragment2= new Search_Fragment();
-    final Fragment fragment3= new Cart_Fragment();
-
+    CounterFab fab;
     final FragmentManager fm = getSupportFragmentManager();
+
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         loadFragment(new Home_Fragment());
         setupToolbar();
+
+         fab=findViewById(R.id.fab);
+         fab.setVisibility(View.GONE);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment f=new Cart_Fragment();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, f)
+                        .commit();
+            }
+        });
+
+        fab.setCount(1);
 
         if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -62,7 +78,6 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment = null;
@@ -74,7 +89,6 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
                     fragment = new Search_Fragment();
                     break;
                 case R.id.menu_cart:
-                    fragment = new Cart_Fragment();
                     break;
             }
             return loadFragment(fragment);
@@ -86,6 +100,9 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
         switch (menuItem.getItemId()) {
+            case R.id.home:
+                fragment = new Home_Fragment();
+                break;
             case R.id.wallet:
                 fragment = new Wallet();
                 break;
@@ -113,8 +130,8 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
 
     private boolean loadFragment(Fragment fragment) {
         //switching fragment
-        if (fragment != null) {
-            getSupportFragmentManager()
+      if (fragment != null) {
+              getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container, fragment)
                     .commit();
@@ -153,8 +170,8 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
                // Toast.makeText(getApplicationContext(),"Item 1 Selected", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.action_drawer_cart:
-                fragment = new Cart_Fragment();
-                // Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+                Fragment f= new Cart_Fragment();
+                loadFragment(f);
                 return true;
 
             default:
@@ -162,5 +179,9 @@ public class Homepage extends AppCompatActivity implements BottomNavigationView.
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        moveTaskToBack(true);
+    }
 }

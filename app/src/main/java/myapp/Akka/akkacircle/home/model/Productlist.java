@@ -1,46 +1,91 @@
 package myapp.Akka.akkacircle.home.model;
 
-public class Productlist {
-    private int Image;
+import com.google.gson.annotations.SerializedName;
 
-    public int getImage() {
-        return Image;
+import java.io.Serializable;
+
+public class Productlist implements Serializable {
+    @SerializedName("cate_id")
+    String cate_id;
+
+    @SerializedName("subcate_id")
+    String subcate_id;
+
+    @SerializedName("product_id")
+    String product_id;
+
+    @SerializedName("product_name")
+    String product_name;
+
+    @SerializedName("product_sku")
+    String product_sku;
+
+    @SerializedName("price")
+    String price;
+
+    @SerializedName("product_description")
+    String product_description;
+
+    @SerializedName("pro_discount")
+    String pro_discount;
+
+    @SerializedName("product_img")
+    String product_img;
+
+    public Productlist() {
     }
 
-    public void setImage(int image) {
-        Image = image;
+    public Productlist(String cate_id, String subcate_id, String product_id, String product_name, String product_sku, String price, String product_description, String pro_discount, String product_img) {
+        this.cate_id = cate_id;
+        this.subcate_id = subcate_id;
+        this.product_id = product_id;
+        this.product_name = product_name;
+        this.product_sku = product_sku;
+        this.price = price;
+        this.product_description = product_description;
+        this.pro_discount = pro_discount;
+        this.product_img = product_img;
     }
 
-    public String getMaintext() {
-        return Maintext;
+
+    public String getCate_id() {
+        return cate_id;
     }
 
-    public void setMaintext(String maintext) {
-        Maintext = maintext;
+    public void setCate_id(String cate_id) {
+        this.cate_id = cate_id;
     }
 
-    public String getDescribcation() {
-        return Describcation;
+    public String getSubcate_id() {
+        return subcate_id;
     }
 
-    public void setDescribcation(String describcation) {
-        Describcation = describcation;
+    public void setSubcate_id(String subcate_id) {
+        this.subcate_id = subcate_id;
     }
 
-    public String getDiscount() {
-        return discount;
+    public String getProduct_id() {
+        return product_id;
     }
 
-    public void setDiscount(String discount) {
-        this.discount = discount;
+    public void setProduct_id(String product_id) {
+        this.product_id = product_id;
     }
 
-    public String getWait() {
-        return wait;
+    public String getProduct_name() {
+        return product_name;
     }
 
-    public void setWait(String wait) {
-        this.wait = wait;
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+    public String getProduct_sku() {
+        return product_sku;
+    }
+
+    public void setProduct_sku(String product_sku) {
+        this.product_sku = product_sku;
     }
 
     public String getPrice() {
@@ -51,28 +96,28 @@ public class Productlist {
         this.price = price;
     }
 
-    public String getAddlist() {
-        return addlist;
+    public String getProduct_description() {
+        return product_description;
     }
 
-    public void setAddlist(String addlist) {
-        this.addlist = addlist;
+    public void setProduct_description(String product_description) {
+        this.product_description = product_description;
     }
 
-    private String Maintext;
-    private String Describcation;
-    private String discount;
-    private String wait;
-    private String price;
-    private String addlist;
-
-    public String getPricessless() {
-        return pricessless;
+    public String getPro_discount() {
+        return pro_discount;
     }
 
-    public void setPricessless(String pricessless) {
-        this.pricessless = pricessless;
+    public void setPro_discount(String pro_discount) {
+        this.pro_discount = pro_discount;
     }
 
-    private String pricessless;
+    public String getProduct_img() {
+        return product_img;
+    }
+
+    public void setProduct_img(String product_img) {
+        this.product_img = product_img;
+    }
+
 }
